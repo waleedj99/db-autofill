@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "db-autofill"
+version = "1.0.0"
+requires-python = ">=3.10"
+description = "Schema-aware test data generator for PostgreSQL"
+authors = [{name = "Your Name", email = "you@company.com"}]
+dependencies = [
+    "psycopg2-binary>=2.9.9",
+    "faker>=25.4.0",
+    "click>=8.1.7",
+    "pydantic>=2.8.2",
+]
+
+[project.scripts]
+autofill = "src.autofill:main"
+
+[tool.black]
+line-length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
