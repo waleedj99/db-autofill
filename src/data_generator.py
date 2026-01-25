@@ -118,6 +118,9 @@ class DataGenerator:
                       # Range provided for non-numeric column
                       raise ValueError(f"Configuration Error: min_value/max_value provided for column '{col_info.get('name')}' which is of type '{dtype}'. Ranges only supported for numeric types.")
 
+        if 'json' in dtype:
+            return "{}"
+
         if 'int' in dtype:
             # Defaults
             effective_min = int(min_val) if min_val is not None else 1
